@@ -1,1 +1,99 @@
-<h>Hello!</h>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Finlandica&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta property="og:title" content="luau is hot">
+    <meta property="og:description" content="@ luau.site">
+    <meta property="og:url" content="roblox just crashed">
+    <meta property="theme-color" content="#000000">
+    <link rel="icon" type="image/gif" href="gun.gif">
+    <script>
+        function typeWriter(text, i, direction, titleElement) {
+            if (direction === "forward") {
+                if (i <= text.length) {
+                    document.title = text.substring(0, i);
+                    i++;
+                    setTimeout(function() {
+                        typeWriter(text, i, "forward");
+                    }, 200);
+                } else {
+                    setTimeout(function() {
+                        typeWriter(text, i - 1, "backward");
+                    }, 1000);
+                }
+            } else if (direction === "backward") {
+                if (i >= 0) {
+                    document.title = text.substring(0, i);
+                    i--;
+                    setTimeout(function() {
+                        typeWriter(text, i, "backward");
+                    }, 200);
+                } else {
+                    setTimeout(function() {
+                        typeWriter(text, 0, "forward");
+                    }, 1000); 
+                }
+            }
+        }
+
+        typeWriter("/yau", 0, "forward");
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-image"></div>
+
+    <div class="overlay" id="overlay">
+        <button class="enter-button" id="enterButton">CLICK TO ENTER</button>
+        <audio id="backgroundMusic" loop>
+            <source src="yau.bio_music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <div class="profile-box">
+        <audio id="backgroundMusic" loop>
+            <source src="yau.bio_music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        const enterButton = document.getElementById('enterButton');
+        const overlay = document.getElementById('overlay');
+        const profileBox = document.querySelector('.profile-box');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+
+        enterButton.addEventListener('click', () => {
+            overlay.style.opacity = 0;
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                profileBox.style.filter = 'none';
+                backgroundMusic.play();
+            }, 500);
+        });
+    </script>
+</body>
+<div class="background-image"></div>
+
+<div class="profile-box">
+    <div class="border">
+        <div class="profile-image"></div>
+        <div class="profile-details">
+            <div class="container">
+                <img src="https://media.discordapp.net/attachments/987149728800198686/991834200309248070/sparkle.gif" class="sparkle">
+                <h1 class="glow-text">
+                    <span>@ dill</span>
+                    <img src="https://cdn.discordapp.com/attachments/1171536760770146344/1172881244837642240/verified.png?ex=6561edc7&is=654f78c7&hm=db3ca298e4f982e988dac350aa1c33eb4f3f985aae8531764c8778d5d4b165ab&" alt="Verified Image">
+                    <img src="https://i.imgur.com/MgZBYRy.png" alt="Second Image">
+                </h1>
+                <h2 class="glow-text2" id="text"></h2>
+                <script src="script.js"></script>
+                <img src="https://discord.c99.nl/widget/theme-1/1141450081933991997.png" style="width: 300px;">
+            </div>
+            </div>
+        </div>
+</body>
+</html>

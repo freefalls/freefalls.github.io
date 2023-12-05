@@ -3,7 +3,7 @@ const sentences = [
 "constantly coding in lua",
 "py dev also :D",
 "i aint rich",
-"print("y u here??")",
+"if u didnt know im dill."
 ];
 
 let sentenceIndex = 0;
@@ -28,7 +28,7 @@ function typeWriter() {
     }
   }
 
-  let cursorSymbol = cursor ? '_' : '_'; 
+  let cursorSymbol = cursor ? '|' : '|'; 
   textElement.textContent += cursorSymbol; 
 
   cursor = !cursor; 

@@ -28,7 +28,7 @@ function typeWriter() {
     }
   }
 
-  let cursorSymbol = cursor ? '|' : '|'; 
+  let cursorSymbol = cursor ? ' |' : ' |'; 
   textElement.textContent += cursorSymbol; 
 
   cursor = !cursor; 

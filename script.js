@@ -2,8 +2,8 @@ const textElement = document.getElementById('text');
 const sentences = [
 "constantly coding in lua",
 "py dev also :D",
-"i aint rich",
-"if u didnt know im dill."
+"dm me for web developing or discord bots",
+"@histemine on cord"
 ];
 
 let sentenceIndex = 0;

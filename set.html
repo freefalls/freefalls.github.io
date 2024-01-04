@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyDox Goals - Set</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        h2 {
+            font-size: 1.5em;
+        }
+
+        p {
+            font-size: 1em;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>PyDox Goals - Set</h1>
+    <form id="setForm">
+        <label for="domain">Choose your domain:</label><br>
+        <input type="text" id="domain" name="domain" required><br>
+        <label for="discord">Discord username:</label><br>
+        <input type="text" id="discord" name="discord" required><br><br>
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            var domain = document.getElementById('domain').value;
+            var discord = document.getElementById('discord').value;
+
+            // Create the embed object
+            var embed = {
+                title: 'New Submission',
+                fields: [
+                    { name: 'Domain', value: domain },
+                    { name: 'Discord Username', value: discord }
+                ],
+                color: 3447003  // You can customize the color as needed
+            };
+
+            // Create the payload
+            var payload = {
+                embeds: [embed]
+            };
+
+            // Send a POST request to the Discord webhook
+            fetch('https://discord.com/api/webhooks/1192459420081324102/3CPCb077KFy5xHlcw4keSViroSWOYKSF9eRAnVUM_Y_8sQihpijU_TIZjS0gqeAAELXo', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to send webhook request');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Webhook sent successfully:', data);
+                // Redirect to the finished page
+                window.location.href = 'finished.html';
+            })
+            .catch(error => {
+                console.error('Error sending webhook:', error);
+                // Handle error, maybe display a message to the user
+            });
+        }
+    </script>
+</body>
+</html>

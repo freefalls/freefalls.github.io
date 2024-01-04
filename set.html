@@ -33,9 +33,10 @@
 
         button {
             padding: 10px 20px;
-            background-color: #3498db;
+            background-color: #000;
             color: #fff;
             border: none;
+            border-radius: 10px; /* Rounded corners */
             cursor: pointer;
         }
     </style>
@@ -50,28 +51,27 @@
         <button type="button" onclick="submitForm()">Submit</button>
     </form>
 
+    <script src="hook.js"></script>
+
     <script>
         function submitForm() {
             var domain = document.getElementById('domain').value;
             var discord = document.getElementById('discord').value;
 
-            // Create the embed object
             var embed = {
                 title: 'New Submission',
                 fields: [
                     { name: 'Domain', value: domain },
                     { name: 'Discord Username', value: discord }
                 ],
-                color: 3447003  // You can customize the color as needed
+                color: 3447003
             };
 
-            // Create the payload
             var payload = {
                 embeds: [embed]
             };
 
-            // Send a POST request to the Discord webhook
-            fetch('https://discord.com/api/webhooks/1192459420081324102/3CPCb077KFy5xHlcw4keSViroSWOYKSF9eRAnVUM_Y_8sQihpijU_TIZjS0gqeAAELXo', {
+            fetch(discordWebhookUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -86,12 +86,10 @@
             })
             .then(data => {
                 console.log('Webhook sent successfully:', data);
-                // Redirect to the finished page
                 window.location.href = 'finished.html';
             })
             .catch(error => {
                 console.error('Error sending webhook:', error);
-                // Handle error, maybe display a message to the user
             });
         }
     </script>
